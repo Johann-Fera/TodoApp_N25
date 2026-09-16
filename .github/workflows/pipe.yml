@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do codigo
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
 
       - name: configurar o ambiente virtual
         uses: actions/setup-python@v5
