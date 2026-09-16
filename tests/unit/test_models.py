@@ -42,5 +42,6 @@ def test_tarefa_com_titulo_vazio_deve_lancar_erro():
     """
     Testa se a criação de Todo com título vazio ou espaços em branco lança ValueError.
     """
-    pass
+    with pytest.raises(ValueError, match="O título da tarefa não pode ser vazio."):
+        Todo(id=1, title="")
 

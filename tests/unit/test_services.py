@@ -1,8 +1,13 @@
+import pytest
+from app.services import TodoService
+
 def test_service_criar_tarefa(service):
     """
     Testa a criação de uma nova tarefa através do TodoService.
     """
-    pass
+    task = TodoService.create("algo" , "algo detalhado")
+
+    assert task.title == "algo"
 
 
 def test_service_listar_todas_as_tarefas(service):
