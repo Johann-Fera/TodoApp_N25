@@ -18,7 +18,7 @@ def test_service_listar_todas_as_tarefas(service):
     """
     service = TodoService()
     task = service.create("algo2" , "algo detalhado2")
-    lista = service.list_all
+    lista = service.list_all()
     assert lista[0].title == "algo2"
 
 
@@ -26,7 +26,10 @@ def test_service_buscar_tarefa_por_id_existente(service):
     """
     Testa a busca de uma tarefa por ID quando ela existe no repositório.
     """
-    pass
+    service = TodoService()
+    task = service.create("algo" , "algo detalhado")
+    task2 = service.get_by_id(0)
+    assert task2.title == "algo"
 
 
 def test_service_buscar_tarefa_por_id_inexistente(service):
