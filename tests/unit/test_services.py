@@ -39,15 +39,19 @@ def test_service_buscar_tarefa_por_id_inexistente(service):
     service = TodoService()
     task = service.create("algo" , "algo detalhado")
     task2 = service.get_by_id(0)
-    assert task2 == none
+    assert task2 == None
 
 
 def test_service_atualizar_tarefa_existente(service):
     """
     Testa a atualização de título, descrição e status de conclusão de uma tarefa.
     """
-    
-    pass
+    service = TodoService()
+    task = service.create("algo" , "algo detalhado")
+    task2 = service.update(1,"algo diferente","detalhamento diferente",True)
+    assert task2.title == "algo diferente"
+    assert task2.description == "detalhamento diferente"
+    assert task2.completed == True
 
 
 def test_service_remover_tarefa_existente(service):
