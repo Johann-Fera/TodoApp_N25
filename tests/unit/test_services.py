@@ -5,9 +5,10 @@ def test_service_criar_tarefa(service):
     """
     Testa a criação de uma nova tarefa através do TodoService.
     """
-    task = TodoService.create("algo" , "algo detalhado")
+    task = TodoService.create(TodoService,"algo" , "algo detalhado")
 
     assert task.title == "algo"
+    assert task.description == "algo detalhado"
 
 
 def test_service_listar_todas_as_tarefas(service):
