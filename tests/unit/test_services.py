@@ -17,9 +17,9 @@ def test_service_listar_todas_as_tarefas(service):
     Testa se o serviço lista corretamente todas as tarefas cadastradas.
     """
     service = TodoService()
-    task = service.create("algo2" , "algo detalhado2")
+    task = service.create("algo" , "algo detalhado")
     lista = service.list_all()
-    assert lista[0].title == "algo2"
+    assert lista[0].title == "algo"
 
 
 def test_service_buscar_tarefa_por_id_existente(service):
@@ -28,7 +28,7 @@ def test_service_buscar_tarefa_por_id_existente(service):
     """
     service = TodoService()
     task = service.create("algo" , "algo detalhado")
-    task2 = service.get_by_id(0)
+    task2 = service.get_by_id(1)
     assert task2.title == "algo"
 
 
@@ -36,7 +36,10 @@ def test_service_buscar_tarefa_por_id_inexistente(service):
     """
     Testa a busca de uma tarefa por ID inexistente, esperando retorno None.
     """
-    pass
+    service = TodoService()
+    task = service.create("algo" , "algo detalhado")
+    task2 = service.get_by_id(0)
+    assert task2 == none
 
 
 def test_service_atualizar_tarefa_existente(service):
