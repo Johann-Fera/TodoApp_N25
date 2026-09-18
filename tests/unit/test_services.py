@@ -58,8 +58,12 @@ def test_service_remover_tarefa_existente(service):
     """
     Testa a remoção de uma tarefa existente e verifica se ela deixa de existir.
     """
-    
-    pass
+    service = TodoService()
+    task = service.create("algo" , "algo detalhado")
+    feito = service.delete(1)
+    assert feito == True
+    task2 = service.get_by_id(1)
+    assert task2 == None
 
 
 def test_service_remover_tarefa_inexistente(service):
