@@ -70,5 +70,7 @@ def test_service_remover_tarefa_inexistente(service):
     """
     Testa a tentativa de remoção de ID inexistente, esperando retorno False.
     """
-    
-    pass
+    service = TodoService()
+    task = service.create("algo" , "algo detalhado")
+    feito = service.delete(2)
+    assert feito == False
